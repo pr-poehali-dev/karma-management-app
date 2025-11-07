@@ -1,0 +1,30 @@
+{
+  "tests": [
+    {
+      "name": "Log daily action",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "seed_id": 1,
+        "user_id": 1,
+        "action_type": "meditation",
+        "action_description": "Morning meditation",
+        "karma_points": 1
+      },
+      "expectedStatus": 201,
+      "expectedBody": {
+        "seed_id": 1,
+        "action_type": "meditation",
+        "karma_points": 1
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Get user actions with total karma",
+      "method": "GET",
+      "path": "/?user_id=1",
+      "expectedStatus": 200,
+      "bodyMatcher": "skip"
+    }
+  ]
+}

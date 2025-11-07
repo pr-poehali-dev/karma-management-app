@@ -1,0 +1,28 @@
+{
+  "tests": [
+    {
+      "name": "Create new goal",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "user_id": 1,
+        "title": "Test Goal",
+        "description": "Test description"
+      },
+      "expectedStatus": 201,
+      "expectedBody": {
+        "user_id": 1,
+        "title": "Test Goal",
+        "status": "active"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Get user goals",
+      "method": "GET",
+      "path": "/?user_id=1",
+      "expectedStatus": 200,
+      "bodyMatcher": "skip"
+    }
+  ]
+}
